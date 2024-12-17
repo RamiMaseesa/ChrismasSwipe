@@ -30,6 +30,7 @@ public class SpipeDetector : MonoBehaviour
 
                         // Calculate horizontal push direction
                         Rigidbody2D fruitRb = hit.collider.GetComponent<Rigidbody2D>();
+                        Animator animator = hit.collider.GetComponent<Animator>();
                         if (fruitRb != null)
                         {
                             Vector2 pushDirection;
@@ -37,11 +38,13 @@ public class SpipeDetector : MonoBehaviour
                             {
                                 // Push left if the mouse is to the right of the fruit
                                 pushDirection = Vector2.left;
+                                animator.SetBool("hit", true);
                             }
                             else
                             {
                                 // Push right if the mouse is to the left of the fruit
                                 pushDirection = Vector2.right;
+                                animator.SetBool("hit", true);
                             }
 
                             // Apply the force, ensuring only horizontal movement
