@@ -39,12 +39,14 @@ public class SpipeDetector : MonoBehaviour
                                 // Push left if the mouse is to the right of the fruit
                                 pushDirection = Vector2.left;
                                 animator.SetBool("hit", true);
+                                hit.collider.gameObject.GetComponent<ObjectValues>().hitMe = true;
                             }
                             else
                             {
                                 // Push right if the mouse is to the left of the fruit
                                 pushDirection = Vector2.right;
                                 animator.SetBool("hit", true);
+                                hit.collider.gameObject.GetComponent<ObjectValues>().hitMe = true;
                             }
 
                             // Apply the force, ensuring only horizontal movement

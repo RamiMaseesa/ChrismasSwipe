@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4241875485986894575}
   - component: {fileID: 8214649541989222446}
   - component: {fileID: 3850946387475309693}
+  - component: {fileID: 1916118600371283261}
+  - component: {fileID: 1536621829}
   m_Layer: 6
   m_Name: Gift
   m_TagString: Fruit
@@ -170,3 +172,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1916118600371283261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458956246644020922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e94ea34ac65c2b42aa9f360931af78b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values: {fileID: 0}
+  yes: {fileID: 3187537547998851529, guid: 65abc17951794674c898452f6a739adc, type: 3}
+  no: {fileID: 6726570278185344059, guid: 61332f152c0001949bf8dd181393b33c, type: 3}
+--- !u!114 &1536621829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458956246644020922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762b0da835f645b439a67be03bb53379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMe: 0
