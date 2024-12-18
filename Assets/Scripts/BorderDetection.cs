@@ -10,17 +10,16 @@ public class BorderDetection : MonoBehaviour
     private float objectHeight;   // Half the height of the object
     public GameObject yes;
     public GameObject no;
+    
+
+    private float time;
+    private bool spawend = false;
 
     void Start()
     {
-
         
-
-            
-                Values = GetComponent<ObjectValues>();
-
-        
-        
+        Values = GetComponent<ObjectValues>();
+                
         // Calculate the screen bounds using the camera
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
@@ -31,6 +30,10 @@ public class BorderDetection : MonoBehaviour
 
     void Update()
     {
+        time += Time.deltaTime;
+        
+        if (time < 0.5f || spawend) return;
+        
         // Check if the object has reached the left or right border
         if (transform.position.x + objectWidth > screenBounds.x || transform.position.x - objectWidth < -screenBounds.x)
         {
@@ -41,6 +44,7 @@ public class BorderDetection : MonoBehaviour
 
                 // Destroy the object after 10 seconds
                 Destroy(spawnedObject, 1f);
+                spawend = true;
             }
             else
             {
@@ -49,6 +53,7 @@ public class BorderDetection : MonoBehaviour
 
                 // Destroy the object after 10 seconds
                 Destroy(spawnedObject, 1f);
+                spawend = true;
             }
         }
         else if (transform.position.y + objectHeight > screenBounds.y || transform.position.y - objectHeight < -screenBounds.y)
@@ -60,6 +65,7 @@ public class BorderDetection : MonoBehaviour
 
                 // Destroy the object after 10 seconds
                 Destroy(spawnedObject, 1f);
+                spawend = true;
             }
             else
             {
@@ -68,6 +74,7 @@ public class BorderDetection : MonoBehaviour
 
                 // Destroy the object after 10 seconds
                 Destroy(spawnedObject, 1f);
+                spawend = true;
             }
         }
     }
