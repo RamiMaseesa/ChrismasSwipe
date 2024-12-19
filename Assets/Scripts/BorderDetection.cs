@@ -11,12 +11,17 @@ public class BorderDetection : MonoBehaviour
     public GameObject yes;
     public GameObject no;
     
-
+    public ScoreManager scoreManager;
+    public HeartSystem heartSystem;
+    
     private float time;
     private bool spawend = false;
 
     void Start()
     {
+        scoreManager = GameObject.Find("Score").GetComponent<ScoreManager>();
+        heartSystem = GameObject.Find("Canvas").GetComponent<HeartSystem>();
+        
         
         Values = GetComponent<ObjectValues>();
                 
@@ -39,20 +44,52 @@ public class BorderDetection : MonoBehaviour
         {
             if (Values.hitMe)
             {
-                // Instantiate the object
-                GameObject spawnedObject = Instantiate(yes, transform.position, Quaternion.identity);
 
-                // Destroy the object after 10 seconds
-                Destroy(spawnedObject, 1f);
+                if (Values.score == -1)
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(no, transform.position, Quaternion.identity);
+
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    heartSystem.heartCount -= 1;
+                }
+                else
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(yes, transform.position, Quaternion.identity);
+
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    scoreManager.score += 100;
+                }
+
+                
                 spawend = true;
             }
             else
             {
-                // Instantiate the object
-                GameObject spawnedObject = Instantiate(no, transform.position, Quaternion.identity);
+                
+                if (Values.score == -1)
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(yes, transform.position, Quaternion.identity);
 
-                // Destroy the object after 10 seconds
-                Destroy(spawnedObject, 1f);
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    scoreManager.score += 100;
+                }
+                else
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(no, transform.position, Quaternion.identity);
+
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    heartSystem.heartCount -= 1;
+                }
+                
+                
                 spawend = true;
             }
         }
@@ -60,20 +97,52 @@ public class BorderDetection : MonoBehaviour
         {
             if (Values.hitMe)
             {
-                // Instantiate the object
-                GameObject spawnedObject = Instantiate(yes, transform.position, Quaternion.identity);
 
-                // Destroy the object after 10 seconds
-                Destroy(spawnedObject, 1f);
+                if (Values.score == -1)
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(no, transform.position, Quaternion.identity);
+
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    heartSystem.heartCount -= 1;
+                }
+                else
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(yes, transform.position, Quaternion.identity);
+
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    scoreManager.score += 100;
+                }
+
+                
                 spawend = true;
             }
             else
             {
-                // Instantiate the object
-                GameObject spawnedObject = Instantiate(no, transform.position, Quaternion.identity);
+                
+                if (Values.score == -1)
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(yes, transform.position, Quaternion.identity);
 
-                // Destroy the object after 10 seconds
-                Destroy(spawnedObject, 1f);
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    scoreManager.score += 100;
+                }
+                else
+                {
+                    // Instantiate the object
+                    GameObject spawnedObject = Instantiate(no, transform.position, Quaternion.identity);
+
+                    // Destroy the object after 10 seconds
+                    Destroy(spawnedObject, 1f);
+                    heartSystem.heartCount -= 1;
+                }
+                
+                
                 spawend = true;
             }
         }
